@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: docker
+      dockerfile: php-cli/Dockerfile
+    tty: true
+    restart: always
+    volumes:
+      - ./api:/var/www/api
