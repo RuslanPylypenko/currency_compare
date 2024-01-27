@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Event\CurrencyComparisonEvent;
 use App\Services\CurrencyRate\CurrencyRate;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class CurrencyComparator
 {
@@ -25,5 +27,6 @@ class CurrencyComparator
             }
         }
 
+        $this->dispatcher->dispatch(new CurrencyComparisonEvent([]));
     }
 }

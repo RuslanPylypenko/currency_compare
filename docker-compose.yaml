@@ -7,5 +7,16 @@ services:
       dockerfile: php-cli/Dockerfile
     tty: true
     restart: always
+    environment:
+      APP_ENV: dev
+      MAILER_DSN: smtp://mailer:1025
+      MAILER_FROM_EMAIL: admin@app.test
+      MAILER_TO_EMAIL: user@app.test
     volumes:
       - ./api:/var/www/api
+
+  mailer:
+    image: mailhog/mailhog
+    ports:
+      - 1025:1025
+      - 8082:8025

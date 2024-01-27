@@ -8,6 +8,6 @@ class MonoBankApiClient implements CurrencyRateApiClient
 {
     public function getRates(): CurrencyRate
     {
-        // TODO: Implement getRates() method.
+       return new CurrencyRate('Mono', []);
     }
 }
