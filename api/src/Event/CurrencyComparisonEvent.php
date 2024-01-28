@@ -9,6 +9,10 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 class CurrencyComparisonEvent extends Event
 {
+    /**
+     * @param array<string, array{CurrencyRate, CurrencyRate}> $thresholdReached
+     * @param float $threshold
+     */
     public function __construct(
         private readonly array $thresholdReached,
         private readonly float $threshold,
@@ -16,7 +20,7 @@ class CurrencyComparisonEvent extends Event
     }
 
     /**
-     * @return array<string, array<CurrencyRate, CurrencyRate>>
+     * @return array<string, array{CurrencyRate, CurrencyRate}>
      */
     public function getThresholdReached(): array
     {

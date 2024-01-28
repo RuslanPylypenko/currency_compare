@@ -6,6 +6,9 @@ namespace App\Model;
 
 class CurrencyRate
 {
+    /**
+     * @param array<string, float> $rates
+     */
     public function __construct(
         private readonly string $bank,
         private readonly array $rates,

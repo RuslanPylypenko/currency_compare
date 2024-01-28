@@ -18,3 +18,6 @@ api-clear:
 
 currency-compare:
 	docker-compose run --rm backend composer app app:exchange:compare
+
+validate:
+	docker-compose run --rm backend composer run validate
