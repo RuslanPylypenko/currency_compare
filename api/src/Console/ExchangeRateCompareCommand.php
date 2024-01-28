@@ -30,7 +30,7 @@ class ExchangeRateCompareCommand extends Command
     {
         $this
             ->setDescription('Fetches currency rates from different banks and compare it.')
-            ->addArgument('threshold', InputArgument::OPTIONAL, 'Threshold for rate change', 0.001);
+            ->addArgument('threshold', InputArgument::OPTIONAL, 'Threshold for rate change', 0.05);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
