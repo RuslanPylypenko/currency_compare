@@ -1,0 +1,24 @@
+monolog:
+    handlers:
+        main:
+            type:         fingers_crossed
+            action_level: warning
+            handler:      grouped
+        grouped:
+            type:    group
+            members: [streamed, deduplicated]
+        streamed:
+            type:  stream
+            path:  '%kernel.logs_dir%/%kernel.environment%.log'
+            level: debug
+        deduplicated:
+            type:    deduplication
+            handler: symfony_mailer
+        symfony_mailer:
+            type:         symfony_mailer
+            from_email:   '%env(MAILER_LOGS_EMAIL)%'
+            to_email:     '%env(MAILER_LOGS_EMAIL)%'
+            subject:      'An Error Occurred! %%message%%'
+            level:        error
+            formatter:    monolog.formatter.html
+            content_type: text/html

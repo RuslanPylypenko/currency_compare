@@ -12,11 +12,6 @@ class MonoBankRateService extends AbstractCurrencyRateService
 {
     private const API_URL = 'https://api.monobank.ua/bank/currency';
 
-    public function __construct(CurrencyDataProvider $dataProvider)
-    {
-        parent::__construct($dataProvider);
-    }
-
     protected function getDataMapper(): CurrencyDataMapper
     {
        return new MonobankDataMapper();

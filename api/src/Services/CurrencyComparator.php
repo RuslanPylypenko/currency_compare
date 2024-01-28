@@ -23,7 +23,7 @@ class CurrencyComparator
     ): void {
         $thresholdReached = [];
         foreach (Currency::currencies() as $currency) {
-            if(abs($first->getRate($currency) - $second->getRate($currency)) > $threshold) {
+            if(abs($first->getRate($currency->value) - $second->getRate($currency->value)) > $threshold) {
                 $thresholdReached[$currency->value] = [$first, $second];
             }
         }

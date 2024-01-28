@@ -21,10 +21,10 @@ class MonobankDataMapper implements CurrencyDataMapper
 
         foreach ($data as $currency) {
             if ($currency['currencyCodeA'] === self::USD && $currency['currencyCodeB'] === self::UAH) {
-                $exchangeRates[Currency::USD->value] = round((float) $currency['rateBuy'], 2);
+                $exchangeRates[Currency::USD->value] = round($currency['rateBuy'], 2);
             }
             if ($currency['currencyCodeA'] === self::EUR && $currency['currencyCodeB'] === self::UAH) {
-                $exchangeRates[Currency::EUR->value] = round((float) $currency['rateBuy'], 2);
+                $exchangeRates[Currency::EUR->value] = round($currency['rateBuy'], 2);
             }
         }
 

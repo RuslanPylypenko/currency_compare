@@ -10,6 +10,7 @@ services:
     environment:
       APP_ENV: dev
       MAILER_DSN: smtp://mailer:1025
+      MAILER_LOGS_EMAIL: logs@app.test
       MAILER_FROM_EMAIL: admin@app.test
       MAILER_TO_EMAIL: user@app.test
     volumes:

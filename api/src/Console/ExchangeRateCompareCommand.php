@@ -48,7 +48,7 @@ class ExchangeRateCompareCommand extends Command
             return Command::FAILURE;
         } catch (Throwable $throwable) {
             $output->writeln(sprintf('<error>%s</error>', 'Something wrong, please, try later...'));
-            return Command::FAILURE;
+            throw $throwable;
         }
 
         $output->writeln('<info>Check your email.</info>');

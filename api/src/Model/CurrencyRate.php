@@ -17,8 +17,8 @@ class CurrencyRate
         return $this->bank;
     }
 
-    public function getRate(Currency $currency): float
+    public function getRate(string $currency): float
     {
-        return $this->rates[$currency->value];
+        return $this->rates[$currency];
     }
 }

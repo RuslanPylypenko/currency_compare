@@ -14,10 +14,6 @@ class PrivatBankRateService extends AbstractCurrencyRateService
 {
     private const API_URL = 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5';
 
-    private const EUR = 'EUR';
-    private const USD = 'USD';
-    private const UAH = 'UAH';
-
     protected function getDataMapper(): CurrencyDataMapper
     {
         return new PrivatBankDataMapper();
