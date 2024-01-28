@@ -24,11 +24,14 @@ class EmailNotificationListener
         $message = (new TemplatedEmail())
             ->to('user@app.com')
             ->subject('Threshold Reached')
-            ->htmlTemplate('currency/threshold_reached.html.twig');
+            ->htmlTemplate('currency/threshold_reached.html.twig')
+            ->context([
+                'thresholdReached' => $event->getThresholdReached()
+            ]);
 
         try {
             $this->mailer->send($message);
-        } catch (TransportExceptionInterface $exception) {
+        } catch (TransportExceptionInterface) {
             throw new RuntimeException('Unable to send email.');
         }
     }

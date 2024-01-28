@@ -19,6 +19,6 @@ class CurrencyRate
 
     public function getRate(string $currency): float
     {
-        return 2;
+        return $this->rates[$currency];
     }
 }

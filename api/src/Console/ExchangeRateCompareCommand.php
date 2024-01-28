@@ -36,8 +36,6 @@ class ExchangeRateCompareCommand extends Command
     {
         $output->writeln('I`m do some magic, wait, please....');
 
-        $output->writeln((string)$input->getArgument('threshold'));
-
         $this->comparator->compare(
             $this->monoBankApiClient->getRates(),
             $this->privatBankApiClient->getRates(),

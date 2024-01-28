@@ -27,6 +27,8 @@ class CurrencyComparator
             }
         }
 
-        $this->dispatcher->dispatch(new CurrencyComparisonEvent([]));
+        if(!empty($thresholdReached)) {
+            $this->dispatcher->dispatch(new CurrencyComparisonEvent($thresholdReached));
+        }
     }
 }

@@ -8,6 +8,6 @@ class PrivatBankApiClient implements CurrencyRateApiClient
 {
     public function getRates(): CurrencyRate
     {
-        return new CurrencyRate('Mono', []);
+        return new CurrencyRate('Privat', ['USD' => 36.7, 'EUR' => 41.4]);
     }
 }
