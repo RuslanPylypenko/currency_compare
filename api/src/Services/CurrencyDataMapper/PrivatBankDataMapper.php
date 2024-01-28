@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services\CurrencyDataMapper;
 
+use App\Model\Currency;
 use App\Model\CurrencyRate;
 
 class PrivatBankDataMapper implements CurrencyDataMapper
@@ -20,10 +21,10 @@ class PrivatBankDataMapper implements CurrencyDataMapper
 
         foreach ($data as $currency) {
             if ($currency['ccy'] === self::USD && $currency['base_ccy'] === self::UAH) {
-                $exchangeRates['USD'] = round((float) $currency['buy'], 2);
+                $exchangeRates[Currency::USD->value] = round((float) $currency['buy'], 2);
             }
             if ($currency['ccy'] === self::EUR && $currency['base_ccy'] === self::UAH) {
-                $exchangeRates['EUR'] = round((float) $currency['buy'], 2);
+                $exchangeRates[Currency::EUR->value] = round((float) $currency['buy'], 2);
             }
         }
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services\CurrencyDataMapper;
 
+use App\Model\Currency;
 use App\Model\CurrencyRate;
 
 class MonobankDataMapper implements CurrencyDataMapper
@@ -20,10 +21,10 @@ class MonobankDataMapper implements CurrencyDataMapper
 
         foreach ($data as $currency) {
             if ($currency['currencyCodeA'] === self::USD && $currency['currencyCodeB'] === self::UAH) {
-                $exchangeRates['USD'] = round((float) $currency['rateBuy'], 2);
+                $exchangeRates[Currency::USD->value] = round((float) $currency['rateBuy'], 2);
             }
             if ($currency['currencyCodeA'] === self::EUR && $currency['currencyCodeB'] === self::UAH) {
-                $exchangeRates['EUR'] = round((float) $currency['rateBuy'], 2);
+                $exchangeRates[Currency::EUR->value] = round((float) $currency['rateBuy'], 2);
             }
         }
 

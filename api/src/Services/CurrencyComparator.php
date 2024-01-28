@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Event\CurrencyComparisonEvent;
+use App\Model\Currency;
 use App\Model\CurrencyRate;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
@@ -21,9 +22,9 @@ class CurrencyComparator
         float $threshold
     ): void {
         $thresholdReached = [];
-        foreach (['USD', 'EUR'] as $currency) {
+        foreach (Currency::currencies() as $currency) {
             if(abs($first->getRate($currency) - $second->getRate($currency)) > $threshold) {
-                $thresholdReached[$currency] = [$first, $second];
+                $thresholdReached[$currency->value] = [$first, $second];
             }
         }
 
