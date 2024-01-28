@@ -2,23 +2,23 @@
 
 {% block body %}
 
-    <p>Шановний користувачу,</p>
+    <p>Dear user,</p>
 
-    <p>Ми б хотіли повідомити вас про зміну курсу валют між Приватбанком та Монобанком:</p>
+    <p>We would like to inform you about the change in currency exchange rates between Privatbank and Monobank:</p>
 
     {% for currency, currencyRates in thresholdReached %}
         <ul>
-        <li>Валюта: - {{ currency }}</li>
+        <li>Currency: - {{ currency }}</li>
         {% for currencyRate in currencyRates %}
-            <li>Курс в {{ currencyRate.getBank() }}: {{ currencyRate.getRate(currency) }} UAH</li>
+            <li>Exchange rate in {{ currencyRate.getBank() }}: {{ currencyRate.getRate(currency) }} UAH</li>
         {% endfor %}
         </ul>
     {% endfor %}
 
-    <p>Різниця між курсами перевищила заданий поріг.</p>
+    <p>The difference between the rates has exceeded the specified threshold - {{ threshold }}.</p>
 
-    <p>Будь ласка, зверніть увагу на ці зміни та відстежуйте подальші тенденції.</p>
+    <p>Please pay attention to these changes and monitor further trends.</p>
 
-    <p>З повагою,<br>Ваша програма</p>
+    <p>Best regards,<br>Your program</p>
 
 {% endblock %}

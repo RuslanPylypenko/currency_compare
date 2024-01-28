@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace App\Event;
 
-use App\Services\CurrencyRate\CurrencyRate;
+use App\Model\CurrencyRate;
 use Symfony\Contracts\EventDispatcher\Event;
 
 class CurrencyComparisonEvent extends Event
 {
     public function __construct(
-        private readonly array $thresholdReached
+        private readonly array $thresholdReached,
+        private readonly float $threshold,
     ){
     }
 
@@ -20,5 +21,10 @@ class CurrencyComparisonEvent extends Event
     public function getThresholdReached(): array
     {
         return $this->thresholdReached;
+    }
+
+    public function getThreshold(): float
+    {
+        return $this->threshold;
     }
 }

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Event\CurrencyComparisonEvent;
-use App\Services\CurrencyRate\CurrencyRate;
+use App\Model\CurrencyRate;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class CurrencyComparator
@@ -28,7 +28,7 @@ class CurrencyComparator
         }
 
         if(!empty($thresholdReached)) {
-            $this->dispatcher->dispatch(new CurrencyComparisonEvent($thresholdReached));
+            $this->dispatcher->dispatch(new CurrencyComparisonEvent($thresholdReached, $threshold));
         }
     }
 }

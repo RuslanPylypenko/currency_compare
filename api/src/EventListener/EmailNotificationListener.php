@@ -26,7 +26,8 @@ class EmailNotificationListener
             ->subject('Threshold Reached')
             ->htmlTemplate('currency/threshold_reached.html.twig')
             ->context([
-                'thresholdReached' => $event->getThresholdReached()
+                'thresholdReached' => $event->getThresholdReached(),
+                'threshold' => $event->getThreshold(),
             ]);
 
         try {
