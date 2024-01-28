@@ -15,3 +15,6 @@ docker-pull:
 
 api-clear:
 	docker run --rm -v ${PWD}/api:/app -w /app alpine sh -c 'rm -rf var/*'
+
+currency-compare:
+	docker-compose run --rm backend composer app app:exchange:compare
